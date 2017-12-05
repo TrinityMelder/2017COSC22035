@@ -7,10 +7,29 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        Statement ttt=null;
         Statement stml = null;
-
+        DBConnect.dbConnect ta=new dbConnect();
         DBConnect.dbConnect DB = new dbConnect();//Object from DB connect
         DB.Connect2DB();//Connect to DB
+        stml=DB.Conn2DB();
+        String query="select * from userdetails";
+        String insertquery="insert into userdetails ('UserID','UserName','Email','Password','Role') VALUES(166,'TTTT','fhsufg@ydgsy','hudsf',22)";
+
+        try{
+            stml.executeUpdate(insertquery);
+            ResultSet rs= stml.executeQuery(query);
+            while(rs.next()){
+                int UID =rs.getInt("UserId");
+                String pw=rs.getString( "Password");
+                System.out.println("user id" + UID  +"Password" + pw);
+            }
+        }
+        catch(SQLException se){
+            se.printStackTrace();
+        }
+
+
 
         System.out.print("Input Lecturer Name:");
         academic UPL = new academic();
