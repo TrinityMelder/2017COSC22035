@@ -15,7 +15,7 @@ public class Main {
         stml=DB.Conn2DB();
         String query="select * from userdetails";
         String insertquery="insert into userdetails ('UserID','UserName','Email','Password','Role') VALUES(166,'TTTT','fhsufg@ydgsy','hudsf',22)";
-
+//
         try{
             stml.executeUpdate(insertquery);
             ResultSet rs= stml.executeQuery(query);
